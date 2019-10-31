@@ -2,7 +2,7 @@
 // Default template for JSON Data
 // STDIN
 process.stdin.on("data", function(NexssStdin) {
-  console.log(`#${NexssStdin}#`);
+  // console.log(`#${NexssStdin}#`);
   if (!NexssStdin) console.error("No data passed to the Output/Text Node");
   let NexssStdout;
   try {
@@ -14,7 +14,7 @@ process.stdin.on("data", function(NexssStdin) {
   // Modify data
   //NexssStdout.NodeJSOutput = `Hello from NodeJS! ${process.version}`;
   //console.log(NexssStdout);
-  NexssStdout.test = "text";
+  // NexssStdout.test = "text";
   const { writeFileSync } = require("fs");
   const cwd = NexssStdout.cwd;
   delete NexssStdout.start;
