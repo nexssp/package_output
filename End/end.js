@@ -10,6 +10,10 @@ const {
 const NexssIn = require(`${process.env.NEXSS_PACKAGES_PATH}/Nexss/Lib/NexssIn.js`);
 let NexssStdout = NexssIn();
 
+if (NexssStdout._debug) {
+  console.log(NexssStdout);
+}
+
 let stop = null;
 
 if (NexssStdout.hasOwnProperty("_ifNot")) {
