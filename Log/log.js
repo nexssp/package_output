@@ -26,7 +26,9 @@ type = `nxs${
   NexssStdout._type.charAt(0).toUpperCase() + NexssStdout._type.slice(1)
 }`;
 
-eval(type)(NexssStdout.nxsIn.join("\n"));
+eval(type)(
+  NexssStdout.nxsIn.join ? NexssStdout.nxsIn.join("\n") : NexssStdout.nxsIn
+);
 
 delete NexssStdout.nxsIn;
 delete NexssStdout.resultField_1;
