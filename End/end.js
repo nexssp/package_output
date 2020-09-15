@@ -58,9 +58,16 @@ if (stop === "ok") {
     const types = ["error", "debug", "info", "warn", "trace", "ok"];
     if (!types.includes(NexssStdout._type)) {
       nxsError(
-        `Type ${NexssStdout._type} has not been found. Use ${types.join(", ")}`
+        `Output/End: _type '${
+          NexssStdout._type
+        }' has not been found. Use --_type=${types.join(", ")}`
       );
       NexssStdout.nxsStop = true;
+      NexssStdout.nxsReason = true;
+      delete NexssStdout.nxsIn;
+      delete NexssStdout.resultField_1;
+      process.stdout.write(JSON.stringify(NexssStdout));
+      return;
     }
 
     type = `nxs${
