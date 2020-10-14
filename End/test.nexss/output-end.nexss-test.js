@@ -15,7 +15,7 @@ module.exports = {
           ],
         },
         {
-          title: "ifnot 1 if 0",
+          title: "ifnot 1 if 1",
           params: [
             "nexss Output/End --_ifNot=1 --_if=1 messageDisplay",
             /messageDisplay/,

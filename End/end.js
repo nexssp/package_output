@@ -63,7 +63,7 @@ if (stop === "ok") {
         }' has not been found. Use --_type=${types.join(", ")}`
       );
       NexssStdout.nxsStop = true;
-      NexssStdout.nxsReason = true;
+      NexssStdout.nxsStopReason = "ok";
       delete NexssStdout.nxsIn;
       delete NexssStdout.resultField_1;
       process.stdout.write(JSON.stringify(NexssStdout));
@@ -77,6 +77,7 @@ if (stop === "ok") {
 
   eval(type)(NexssStdout.nxsIn.join("\n"));
   NexssStdout.nxsStop = true;
+  NexssStdout.nxsStopReason = "ok";
 }
 
 delete NexssStdout.nxsIn;
