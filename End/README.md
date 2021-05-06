@@ -8,5 +8,6 @@ Display final/end message, errors, warnings if there are in the data.
 ## Examples
 
 ```sh
+nexss Output/End "works on Ubuntu"  --_if="0" --_debug
 nexss Output/End "my text 1\nmytext 2" "some other text next line" "next line"
 ```
