@@ -15,31 +15,6 @@ if (NexssStdout._debug) {
 }
 
 let stop = null;
-
-if (NexssStdout.hasOwnProperty("_ifNot")) {
-  if (!NexssStdout._ifNot || NexssStdout._ifNot === 0) {
-    stop = "ok";
-  }
-}
-
-if (stop !== "ok" && NexssStdout.hasOwnProperty("_if")) {
-  if (NexssStdout._if && NexssStdout._if !== null && NexssStdout._if !== "") {
-    stop = "ok";
-  }
-}
-
-if (NexssStdout.hasOwnProperty("_ifExists")) {
-  if (NexssStdout[NexssStdout._ifExists]) {
-    stop = "ok";
-  }
-}
-
-if (NexssStdout.hasOwnProperty("_ifNotExists")) {
-  if (!NexssStdout[NexssStdout._ifNotExists]) {
-    stop = "ok";
-  }
-}
-
 if (
   !NexssStdout.hasOwnProperty("_if") &&
   !NexssStdout.hasOwnProperty("_ifNot") &&
@@ -47,6 +22,35 @@ if (
   !NexssStdout.hasOwnProperty("_ifExists")
 ) {
   stop = "ok";
+} else {
+  if (NexssStdout.hasOwnProperty("_ifNot")) {
+    if (!NexssStdout._ifNot || NexssStdout._ifNot === 0) {
+      stop = "ok";
+    }
+  }
+
+  if (stop !== "ok" && NexssStdout.hasOwnProperty("_if")) {
+    if (
+      NexssStdout._if &&
+      NexssStdout[NexssStdout._if] !== null &&
+      NexssStdout[NexssStdout._if] !== "" &&
+      NexssStdout[NexssStdout._if] !== undefined
+    ) {
+      stop = "ok";
+    }
+  }
+
+  if (NexssStdout.hasOwnProperty("_ifExists")) {
+    if (NexssStdout[NexssStdout._ifExists]) {
+      stop = "ok";
+    }
+  }
+
+  if (NexssStdout.hasOwnProperty("_ifNotExists")) {
+    if (!NexssStdout[NexssStdout._ifNotExists]) {
+      stop = "ok";
+    }
+  }
 }
 
 if (stop === "ok") {
