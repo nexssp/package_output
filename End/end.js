@@ -79,7 +79,9 @@ if (stop === "ok") {
     }`;
   }
 
-  eval(type)(NexssStdout.nxsIn.join("\n"));
+  eval(type)(
+    NexssStdout.nxsIn.join ? NexssStdout.nxsIn.join("\n") : NexssStdout.nxsIn
+  );
   NexssStdout.nxsStop = true;
   NexssStdout.nxsStopReason = "ok";
 }
